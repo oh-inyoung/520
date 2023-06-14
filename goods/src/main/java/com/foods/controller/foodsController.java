@@ -1,5 +1,5 @@
-package com.goods.controller;
+package com.foods.controller;
 
-public class GoodsController {
+public class foodsController {
 
 }

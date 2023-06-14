@@ -1,4 +1,4 @@
-package com.goods.vo;
+package com.foods.vo;
 
 public class ReviewVO {
 

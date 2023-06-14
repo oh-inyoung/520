@@ -1,4 +1,4 @@
-package com.goods.service;
+package com.foods.service;
 
 public interface buyService {
 

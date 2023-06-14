@@ -1,4 +1,4 @@
-package com.goods.controller;
+package com.foods.controller;
 
 public class BuyController {
 

@@ -1,5 +1,5 @@
-package com.goods.dao;
+package com.foods.dao;
 
-public interface goodsDAO {
+public interface foodsDAO {
 
 }

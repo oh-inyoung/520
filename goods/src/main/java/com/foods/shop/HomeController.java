@@ -1,4 +1,4 @@
-package com.goods.shop;
+package com.foods.shop;
 
 import java.text.DateFormat;
 import java.util.Date;

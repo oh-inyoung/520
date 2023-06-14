@@ -40,9 +40,9 @@
 			ref="sqlSessionFactory">
 		</constructor-arg>
 	</bean>
-	<context:component-scan base-package="com.goods.dao"></context:component-scan>
+	<context:component-scan base-package="com.foods.dao"></context:component-scan>
 	<!-- DAO 사용 -->
-	<context:component-scan base-package="com.goods.service"></context:component-scan>
+	<context:component-scan base-package="com.foods.service"></context:component-scan>
 	<!-- service 사용 -->
-	<context:component-scan base-package="com.goods.controller"> <!-- 페이지 연결 --></context:component-scan>
+	<context:component-scan base-package="com.foods.controller"> <!-- 페이지 연결 --></context:component-scan>
 </beans>
