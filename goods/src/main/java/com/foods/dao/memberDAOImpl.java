@@ -34,23 +34,23 @@ public class memberDAOImpl implements memberDAO {
 	}
 
 	@Override
-	public MemberVO viewMember(String userid) {
-		// ""안에는 mapper에 사용할 id 이름, userid가 전달할 값
-		return sqlSession.selectOne(mapper+"memberView", userid); //1개의 값만 조회
+	public MemberVO viewMember(String memberId) {
+		// ""안에는 mapper에 사용할 id 이름, memberId가 전달할 값
+		return sqlSession.selectOne(mapper+"memberView", memberId); //1개의 값만 조회
 	}
 	@Override
-	public void deleteMember(String userid) {
-		sqlSession.delete(mapper+"memberDelete", userid);
+	public void deleteMember(String memberId) {
+		sqlSession.delete(mapper+"memberDelete", memberId);
 	}
 	
-	public boolean checkPw(String userid, String userpw) {
+	public boolean checkPw(String memberId, String memberPw) {
 		boolean result = false; //임의로 결과는 실패로 선언
 		//파이썬에서 사전 (키, 값)===>Map
 		//VO를 사용하지 않고 여러값을 동시에 전달
 		//Map<키데이터형, 값데이터형>
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("userid", userid); //Map(키이름, 값)에 추가
-		map.put("userpw", userpw);
+		map.put("memberId", memberId); //Map(키이름, 값)에 추가
+		map.put("memberPw", memberPw);
 		
 		int count = sqlSession.selectOne(mapper+"checkPw", map); //데이터베이스 처리
 		if(count == 1) result = true;
