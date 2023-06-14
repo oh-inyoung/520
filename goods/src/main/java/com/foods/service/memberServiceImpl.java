@@ -46,9 +46,9 @@ public class memberServiceImpl implements memberService {
 		
 		if(result) { //정상적인 로그인이면
 			//로그인된 회원의 정보를 읽어온다.
-			MemberVO vo2 = memberDao.viewMember(vo.getmemberId());
-			session.setAttribute("memberId", vo2.getmemberId()); //섹션영역에 아이디와 이름을 저장
-			session.setAttribute("memberName", vo2.getmemberName());
+			MemberVO vo2 = memberDao.viewMember(vo.getMemberId());
+		    session.setAttribute("memberId", vo2.getMemberId()); //섹션영역에 아이디와 이름을 저장
+			session.setAttribute("memberName", vo2.getMemberName());
 		}
 		return result;
 		
