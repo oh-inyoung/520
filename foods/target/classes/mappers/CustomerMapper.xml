@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- *Mapper.xml 정의->*(테이블명)Mapper.xml -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 댓글 처리 batis -->
+<mapper namespace="CustomerMapper">
+
+   <!-- 게시글 전체 조회 -->
+   <select id="selectList" resultType="com.foods.vo.CustomerVO">
+      SELECT CustomerNo, CustomerTitle, CustomerContext, CustomerWriter, CustomerRegdate, CustomerCnt FROM foods_customer 
+   </select>
+   <!-- 게시글 등록 -->
+   <insert id="insert">
+      INSERT INTO foods_customer(CustomerTitle, CustomerContext, CustomerWriter) VALUES (#{CustomerTitle}, #{CustomerContext}, #{CustomerWriter})
+   </insert>
+   <!-- 게시글 상세 조회 -->
+   <!-- 게시글+회원관리 결합해서 필요한 필드만 추출 -->
+   <!-- Left Join -->
+   <!-- select 테이블명.필드 from 테이블명 별칭(알파벳) left join 참조테이블 별칭 on 테이블.필드 = 참조테이블.필드 -->
+   <select id="view" resultType="com.foods.vo.CustomerVO">
+      SELECT a.CustomerNo, a.CustomerTitle, a.CustomerContext, a.CustomerWriter, a.CustomerRegdate, a.CustomerCnt, b.memberName 
+      FROM foods_customer a left join foods_member b on a.CustomerWriter = b.memberId WHERE CustomerNo=#{CustomerNo}
+   </select>
+   <!-- 게시글 수정 -->
+   <update id="update">
+      UPDATE foods_customer SET CustomerTitle=#{CustomerTitle}, CustomerContext=#{CustomerContext}, CustomerWriter=#{CustomerWriter} WHERE CustomerNo=#{CustomerNo}
+   </update>
+   <!-- 게시글 삭제 -->
+   <delete id="delete">
+      DELETE FROM foods_customer WHERE CustomerNo=#{CustomerNo}
+   </delete>
+   <!-- 게시글 조회수 증가(Customercnt) -->
+   <!-- 해당 게시글에 조회수를 1증가 -->
+   <update id="increaseCustomercnt">
+      UPDATE foods_customer SET CustomerCnt = CustomerCnt+1 WHERE CustomerNo=#{CustomerNo}
+   </update>
+   
+   <!-- 게시글 검색기능을 추가 -->
+   <!-- 제목+이름, 제목(CustomerTitle), 이름(CustomerWriter) -->
+   <!-- 모든 조회 + 옵션으로 추가기능 -->
+   <!--질의어를 추가 include refid="추가" -->
+   <select id="listAll" resultType="com.foods.vo.CustomerVO">
+      SELECT CustomerNo, CustomerTitle, CustomerContext, CustomerWriter, CustomerRegdate, CustomerCnt FROM foods_customer
+      <include refid="search"></include><!-- 질의어에 해당부분을 추가 -->
+   </select>
+   
+   <sql id = "search">
+      <choose>
+         <when test="searchOption == 'all'">
+            WHERE 
+               CustomerWriter like CONCAT ('%', #{keyword},'%')
+            OR 
+               CustomerContext like CONCAT ('%', #{keyword},'%')
+            OR 
+               CustomerTitle like CONCAT ('%', #{keyword},'%')
+         </when>
+         <otherwise>
+         <!-- 해당부분에서만 조회 -->
+         WHERE ${searchOption} like CONCAT ('%', #{keyword},'%')
+         </otherwise>
+      </choose>
+   </sql>
+</mapper>
+<!-- mapper를 완성한 후에 dao로 가서 작업 -->
