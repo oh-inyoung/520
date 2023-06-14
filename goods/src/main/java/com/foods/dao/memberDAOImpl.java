@@ -11,6 +11,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.foods.vo.MemberVO;
+//느슨한 결합(연동)
+//DAO Repository 어노테이션을 선언해서 데이터베이스 처리부분이라고 선언
 
 @Repository
 public class memberDAOImpl implements memberDAO {

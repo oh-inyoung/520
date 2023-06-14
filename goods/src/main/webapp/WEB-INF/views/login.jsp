@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원등록</title>
-
+<%@ include file="./include/member_header.jsp" %> <!-- 해당파일을 연결 -->
 <script>
 	$("document").ready(
 		function(){
@@ -35,8 +35,7 @@
 </script>
 </head>
 <body>
-<%@ include file="../include/header.jsp" %> <!-- 해당파일을 연결 -->
-<%@ include file="../include/menu.jsp" %> <!-- 해당파일을 연결 -->
+<%@ include file="./include/member_menu.jsp" %> <!-- 해당파일을 연결 -->
 <h2>로그인</h2>
 <div class="container mt-3">
 <form name="form1" method="post" action="${path}/loginCheck"> <!-- member_list에서 member/write사용(get) -->

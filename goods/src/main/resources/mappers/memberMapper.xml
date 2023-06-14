@@ -15,20 +15,20 @@
 	<!-- 태그안에 실질적으로 작업할 질의어를 작성 -->
 	<!-- 전체조회 List, ListAll, 단일조회 List, ListOne, View -->
 	<select id="memberList" resultType="com.foods.vo.MemberVO">
-		SELECT memberNo, memberId, memberName, admin, regdate FROM member order by memberName
+		SELECT memberId, memberName, regdate FROM member order by memberName
 	</select>
 	
 	<!-- 삽입 -->
 	<!-- 입력폼에서 vo에 데이터가 저장 vo변수를 사용하려면 EL -->
 	<!--parameterType="com.spring.memver.vo.MemberVO" -->
 	<insert id="memberInsert">
-		INSERT INTO member(memberId, memberPw, memberName) 
-		values (#{memberId}, #{memberPw}, #{memberName}) 
+		INSERT INTO member(memberId, memberPw, memberName, admin) 
+		values (#{memberId}, #{memberPw}, #{memberName}, #{admin}) 
 	</insert>
 	
 	<!-- 해당자료만 조회 -->
 	<select id="memberView" resultType="com.foods.vo.MemberVO">
-		SELECT memberNo, memberId, memberPw, memberName, admin, regdate  
+		SELECT memberId, memberPw, memberName, admin, regdate  
 		FROM member WHERE memberId = #{memberId}
 	</select> 
 	
@@ -39,8 +39,8 @@
 		
 		memberPw=#{memberPw}, 
 		memberName=#{memberName}, 
-		admin=#{admin}, 
-		regdate=now()
+		admin=#{admin}
+
 		
 		WHERE memberId=#{memberId}
 	</update> 
@@ -64,4 +64,3 @@
 
 </mapper>
 <!-- mapper를 완성한 후에 dao로 가서 작업 -->
-

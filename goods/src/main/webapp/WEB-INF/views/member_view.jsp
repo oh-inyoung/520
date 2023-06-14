@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>회원등록</title>
 <!-- CSS에서 id(#), class(.) 사용 -->
-
+<%@ include file="./include/member_header.jsp" %> <!-- 해당파일을 연결 -->
 <!-- 스크립트(Javascript-DOM, ajax, json) -->
 <script>
 	//현재 문서의 정보를 수집
@@ -50,7 +50,7 @@
 </head>
 <body>
 
-<%@ include file="../include/header.jsp" %> <!-- 해당파일을 연결 -->
+<%@ include file="./include/member_menu.jsp" %> <!-- 해당파일을 연결 -->
 <h2>회원 상세폼</h2>
 <form name="form1" method="post"> <!-- member_list에서 member/write사용(get) -->
 	<table border="1" width="400px">

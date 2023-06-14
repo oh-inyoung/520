@@ -7,10 +7,10 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
-import com.foods.vo.MemberVO;
 import com.foods.dao.memberDAO;
-import com.foods.service.memberService;
+import com.foods.vo.MemberVO;
 
+//서비스 영역은 어노테이션 Service로 선언
 @Service
 public class memberServiceImpl implements memberService {
 	//DAO를 호출해서 자료를 처리하는 목적
@@ -47,7 +47,7 @@ public class memberServiceImpl implements memberService {
 		if(result) { //정상적인 로그인이면
 			//로그인된 회원의 정보를 읽어온다.
 			MemberVO vo2 = memberDao.viewMember(vo.getMemberId());
-		    session.setAttribute("memberId", vo2.getMemberId()); //섹션영역에 아이디와 이름을 저장
+			session.setAttribute("memberId", vo2.getMemberId()); //섹션영역에 아이디와 이름을 저장
 			session.setAttribute("memberName", vo2.getMemberName());
 		}
 		return result;
@@ -62,4 +62,5 @@ public class memberServiceImpl implements memberService {
 		//모든 섹션값을 삭제(다른 설정값까지 삭제)
 		session.invalidate();
 	}
+
 }

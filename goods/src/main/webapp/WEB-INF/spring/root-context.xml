@@ -19,7 +19,7 @@
 			value="com.mysql.cj.jdbc.Driver">
 		</property>
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/goods">
+			value="jdbc:mysql://localhost:3306/foods">
 		</property>
 		<property name="username" value="sample"></property>
 		<property name="password" value="0096"></property>

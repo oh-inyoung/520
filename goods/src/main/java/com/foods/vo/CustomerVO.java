@@ -13,7 +13,6 @@ public class CustomerVO {
 	int CustomerCnt;  //조회수    --board 테이블
 	String memberName; //작성자 --member 테이블(Join)
 	int CustomerReply; //댓글         --reply 테이블(Join)
-	
 	public int getCustomerno() {
 		return Customerno;
 	}
@@ -69,6 +68,7 @@ public class CustomerVO {
 				+ ", CustomerCnt=" + CustomerCnt + ", memberName=" + memberName + ", CustomerReply=" + CustomerReply
 				+ "]";
 	}
+	
 	
 	
 }
