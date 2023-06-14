@@ -1,5 +1,5 @@
 package com.foods.controller;
 
-public class BuyController {
+public class CustomerController {
 
 }
