@@ -16,6 +16,7 @@
 <div class="container mt-3">
 <table border="1" width="700px" class="table"> <!-- 표만들기 -->
 	<tr> <!-- 행 -->
+		<th>NO</th>
 		<th>아이디</th>
 		<th>이름</th>
 		<th>비밀번호</th>
@@ -28,6 +29,7 @@
 <!-- var=개별자료변수 items=Controller에서 전달받은 목록 -->
 <c:forEach var="row" items="${list }">
 	<tr> <!-- 반복적으로 회원정보를 출력하는 부분 -->
+		<td>${row.memberNo }</td>
 		<td>${row.memberId }</td>   <!-- memberId는 필드명, vo에서 선언한 변수명 -->
 		<td><a href="${path}/member/view?memberId=${row.memberId}">${row.memberName }</a></td> <!-- 이름을 클릭시 상세페이지로 이동, EL은 변수값을 출력 -->
 		<td>${row.memberPw }</td>

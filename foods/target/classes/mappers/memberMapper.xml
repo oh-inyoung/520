@@ -15,7 +15,7 @@
 	<!-- 태그안에 실질적으로 작업할 질의어를 작성 -->
 	<!-- 전체조회 List, ListAll, 단일조회 List, ListOne, View -->
 	<select id="memberList" resultType="com.foods.vo.MemberVO">
-		SELECT memberId, memberName, memberPw, memberEmail, admin, regdate FROM foods_member order by memberName
+		SELECT memberNo, memberId, memberName, memberPw, memberEmail, admin, regdate FROM foods_member order by memberNo
 	</select>
 	
 	<!-- 삽입 -->
