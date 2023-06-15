@@ -4,15 +4,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.foods.mapper.adminMapper">
+<mapper namespace="adminMapper">
 
-<!-- 상품 등록 -->
-     <insert id="foodsEnroll" parameterType="com.foods.vo.FoodsVO">
-     
-        insert into foods_detail(foodsName, cateCode, foodsPrice, foodsDetail)
-      values(#{foodsName},#{cateCode},#{foodsPrice},#{foodsDetail})
+	
 
-     </insert>
-
-  </mapper>
+</mapper>
 <!-- mapper를 완성한 후에 dao로 가서 작업 -->

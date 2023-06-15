@@ -13,7 +13,7 @@
 <!-- JSTL-if, foreach 등 자바명령어를 태그화 시켜놓은 형식 -->
 <!-- EL-전달받은 변수(값)을 쉽게 처리하는 형식 $ 대괄호안에 변수명을 기재 %=변수 대신-->
 <%@ include file="./include/member_menu.jsp" %> <!-- 해당파일을 연결 -->
-<h2>회원 등록폼</h2>
+<h2>회원가입</h2>
 <div class="container mt-3">
 <form name="form1" method="post" action="${path}/member/write"> <!-- member_list에서 member/write사용(get) -->
     <div class="mb-3 mt-3">
