@@ -51,7 +51,7 @@
 <body>
 
 <%@ include file="./include/member_menu.jsp" %> <!-- 해당파일을 연결 -->
-<h2>회원 상세폼</h2>
+<h2>회원정보 관리</h2>
 <form name="form1" method="post"> <!-- member_list에서 member/write사용(get) -->
 	<table border="1" width="400px">
 		<tr>
@@ -69,7 +69,7 @@
 		</tr>	
 		<tr>
 			<td>이메일</td>
-			<td><input type="email" name="admin" value="${dto.admin}"></td>			
+			<td><input type="email" name="memberEmail" value="${dto.memberEmail}"></td>			
 		</tr>
 		<tr>
 			<td>가입날짜</td>

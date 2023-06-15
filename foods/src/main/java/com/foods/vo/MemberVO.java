@@ -7,7 +7,8 @@ public class MemberVO {
 	String memberId;
 	String memberPw;
 	String memberName;
-	int admin;
+	String memberEmail;	
+	String admin;
 	Date regdate;
 	public int getMemberNo() {
 		return memberNo;
@@ -33,10 +34,16 @@ public class MemberVO {
 	public void setMemberName(String memberName) {
 		this.memberName = memberName;
 	}
-	public int getAdmin() {
+	public String getMemberEmail() {
+		return memberEmail;
+	}
+	public void setMemberEmail(String memberEmail) {
+		this.memberEmail = memberEmail;
+	}
+	public String getAdmin() {
 		return admin;
 	}
-	public void setAdmin(int admin) {
+	public void setAdmin(String admin) {
 		this.admin = admin;
 	}
 	public Date getRegdate() {
@@ -48,8 +55,9 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [memberNo=" + memberNo + ", memberId=" + memberId + ", memberPw=" + memberPw + ", memberName="
-				+ memberName + ", admin=" + admin + ", regdate=" + regdate + "]";
+				+ memberName + ", memberEmail=" + memberEmail + ", admin=" + admin + ", regdate=" + regdate + "]";
 	}
+	
 	
 	
 	

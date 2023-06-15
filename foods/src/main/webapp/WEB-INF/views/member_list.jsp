@@ -12,22 +12,30 @@
 <!-- 회원 테이블 목록 -->
 <H2>회원 목록</H2>
 <!-- 버튼을 클릭하면 member/write get으로 연결 -->
-<input type="button" value="회원등록" onclick="location.href='${path}/member/write'">
+
 <div class="container mt-3">
 <table border="1" width="700px" class="table"> <!-- 표만들기 -->
 	<tr> <!-- 행 -->
 		<th>아이디</th>
 		<th>이름</th>
+		<th>비밀번호</th>
 		<th>이메일</th>
 		<th>가입날짜</th>
+		<th>관리자구분</th>
+		
+		
 	</tr>
 <!-- var=개별자료변수 items=Controller에서 전달받은 목록 -->
 <c:forEach var="row" items="${list }">
 	<tr> <!-- 반복적으로 회원정보를 출력하는 부분 -->
 		<td>${row.memberId }</td>   <!-- memberId는 필드명, vo에서 선언한 변수명 -->
-		<td><a href="${path}/member/view?memberId=${row.memberId}">${row.memberName }</a></td> <!-- 이름을 클릭시 상세페이지로 이동, EL은 변수값을 출력 --> 
+		<td><a href="${path}/member/view?memberId=${row.memberId}">${row.memberName }</a></td> <!-- 이름을 클릭시 상세페이지로 이동, EL은 변수값을 출력 -->
+		<td>${row.memberPw }</td>
+		<td>${row.memberEmail }</td> 
+		<td>${row.regdate }</td> 
 		<td>${row.admin }</td> 
-		<td>${row.regdate }</td>
+		
+		
 	</tr>
 </c:forEach>
 </table>

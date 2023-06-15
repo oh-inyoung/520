@@ -52,13 +52,13 @@ public class memberController {
 	}
 	
 	//member_list.jsp->a href="member/view" 선언한 내용과 동일
-	//userid 인수값, model-화면처리가 필요하면
+	//memberId 인수값, model-화면처리가 필요하면
 	@RequestMapping("member/view") 
-	public String memberView(String userid, Model model) {
+	public String memberView(String memberId, Model model) {
 		//페이지 연결 환인 후
 		//서비스 연결(값을 전달시 addAttribute)
 		//dto = member_view.jsp value에 {dto.userio}
-		model.addAttribute("dto", memberservice.viewMember(userid)); //session영역에 저장
+		model.addAttribute("dto", memberservice.viewMember(memberId)); //session영역에 저장
 		
 		return "member_view";
 	}
@@ -74,17 +74,17 @@ public class memberController {
 
 	//RequestParam을 이용해서 전달받은 값의 일부분 추출해서 사용이 가능
 	@RequestMapping(value="member/delete", method=RequestMethod.POST)
-	public String memberDelete(@RequestParam String userid, @RequestParam String userpw, Model model) {
+	public String memberDelete(@RequestParam String memberId, @RequestParam String memberPw, Model model) {
 		//아이디와 비밀번호 확인
-		boolean result = memberservice.checkPw(userid, userpw);
+		boolean result = memberservice.checkPw(memberId, memberPw);
 		//정상이면 삭제, 비정상적이면 목록으로 이동
 		if(result) { //참이면(아이디와 비밀번호가 맞으면)
-			memberservice.deleteMember(userid); //삭제처리
+			memberservice.deleteMember(memberId); //삭제처리
 			return "redirect:/member/list";
 		} else {
 			model.addAttribute("message", "비밀번호 불일치");
 			
-			model.addAttribute("dto", memberservice.viewMember(userid)); //회원조회
+			model.addAttribute("dto", memberservice.viewMember(memberId)); //회원조회
 			return "member_view"; //member_view.jsp에 전달
 		}			
 	}

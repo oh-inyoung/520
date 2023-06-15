@@ -49,6 +49,7 @@ public class memberServiceImpl implements memberService {
 			MemberVO vo2 = memberDao.viewMember(vo.getMemberId());
 			session.setAttribute("memberId", vo2.getMemberId()); //섹션영역에 아이디와 이름을 저장
 			session.setAttribute("memberName", vo2.getMemberName());
+			session.setAttribute("admin", vo2.getAdmin());
 		}
 		return result;
 		

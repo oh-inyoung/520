@@ -33,7 +33,7 @@
       <input type="text" id="admin" name="usermeail"></td>	
     </div>	
 	<button type="submit" class="btn btn-primary">등록</button>
-	<button type="reset" class="btn btn-primary">삭제</button>
+
 
 </form>
 </div>
