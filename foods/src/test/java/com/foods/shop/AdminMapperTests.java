@@ -27,7 +27,7 @@ public class AdminMapperTests {
       FoodsVO foods = new FoodsVO();
       
       foods.setFoodsName("mapper 테스트");
-      foods.setCateCode("1234");
+      foods.setCateCode("5678");
       foods.setFoodsPrice(20000);
       foods.setFoodsDetail("상품 소개 .....");
       

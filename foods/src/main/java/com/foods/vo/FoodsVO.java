@@ -8,19 +8,7 @@ public class FoodsVO {
    
    /* 영양제 이름 */
    private String foodsName;
-   
-//   /* 작가 id */
-//   private int authorId;
-//   
-//   /* 작가 이름 */
-//   private String authorName;
-   
-//   /* 출판일 */
-//   private String publeYear;
-//   
-//   /* 출판사 */
-//   private String publisher;
-   
+
    /* 카테고리 코드 */
    private String cateCode;
    
@@ -32,10 +20,7 @@ public class FoodsVO {
    
    /* 상품 소개 */
    private String foodsDetail;
-//   
-//   /* 상품 목차 */
-//   private String bookContents;
-   
+
    /* 등록 날짜 */
    private Date foodsRegDate;
    

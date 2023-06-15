@@ -14,7 +14,7 @@
                        
                           <div class="form_section">
                              <div class="form_section_title">
-                                <label>책 제목</label>
+                                <label>상품명</label>
                              </div>
                              <div class="form_section_content">
                                 <input name="foodsName">
@@ -23,7 +23,7 @@
                               
                           <div class="form_section">
                              <div class="form_section_title">
-                                <label>책 카테고리</label>
+                                <label>상품 카테고리</label>
                              </div>
                              <div class="form_section_content">
                                 <input name="cateCode">
@@ -55,19 +55,13 @@
                           </div>                
                           <div class="form_section">
                              <div class="form_section_title">
-                                <label>책 소개</label>
-                             </div>
-                             <div class="form_section_content">
-                                <input name="bookIntro">
-                             </div>
-                          </div>              
-                          <div class="form_section">
-                             <div class="form_section_title">
-                                <label>상품 설명</label>
+                                <label>상품 소개</label>
                              </div>
                              <div class="form_section_content">
                                 <input name="foodsDetail">
                              </div>
+                          </div>              
+                         
                           </div>
                          </form>
                             <div class="btn_section">

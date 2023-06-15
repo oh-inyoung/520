@@ -18,7 +18,7 @@
 		<c:when test="${sessionScope.admin == 1}"> <!-- admin으로 로그인했을때-->
 			
 	        <a href="${path}/member/list">회원관리</a>| <!-- localhost:8080/member/list로 접속 -->
-			<a href="${path}/shop/list">상품관리</a>| 
+			<a href="${path}/admin/index">상품관리</a>| 
 			<a href="${path}/food/list">AI 식단분석</a>|
 			${sessionScope.memberName}님이 로그인 중입니다. <a href="${path}/loginout">로그아웃</a>	
 			
