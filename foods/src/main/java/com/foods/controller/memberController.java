@@ -48,7 +48,7 @@ public class memberController {
 				
 		memberservice.insertMember(vo); //서버스를 통해 회원등록
 		
-		return "redirect:/member/list";  //목록으로 이동
+		return "redirect:/login";  //로그인페이지로 이동
 	}
 	
 	//member_list.jsp->a href="member/view" 선언한 내용과 동일

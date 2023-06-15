@@ -29,8 +29,8 @@
       <input type="text" id="memberName" name="memberName"></td>	
     </div>
 	<div class="mb-3">
-      <label for="admin">이메일</label>
-      <input type="text" id="admin" name="usermeail"></td>	
+      <label for="memberEmail">이메일</label>
+      <input type="text" id="memberEmail" name="memberEmail"></td>	
     </div>	
 	<button type="submit" class="btn btn-primary">등록</button>
 

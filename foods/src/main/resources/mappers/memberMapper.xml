@@ -22,8 +22,8 @@
 	<!-- 입력폼에서 vo에 데이터가 저장 vo변수를 사용하려면 EL -->
 	<!--parameterType="com.spring.memver.vo.MemberVO" -->
 	<insert id="memberInsert">
-		INSERT INTO foods_member(memberId, memberPw, memberName, memberEmail, admin) 
-		values (#{memberId}, #{memberPw}, #{memberName}, #{memberEmail}, #{admin}) 
+		INSERT INTO foods_member(memberId, memberPw, memberName, memberEmail) 
+		values (#{memberId}, #{memberPw}, #{memberName}, #{memberEmail}) 
 	</insert>
 	
 	<!-- 해당자료만 조회 -->
@@ -39,10 +39,7 @@
 		
 		memberPw=#{memberPw}, 
 		memberName=#{memberName}, 
-		memberEmail=#{memberEmail},
-		admin=#{admin}
-
-		
+		memberEmail=#{memberEmail}		
 		WHERE memberId=#{memberId}
 	</update> 
 	
