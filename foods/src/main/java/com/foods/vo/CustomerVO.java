@@ -2,7 +2,7 @@ package com.foods.vo;
 
 import java.sql.Date;
 import org.springframework.stereotype.Component;
-
+ 
 @Component
 public class CustomerVO {
 	int Customerno;  //회원문의 번호

@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import com.foods.vo.CustomerVO;
-@Repository
+@Repository 
 public class CustomerDAOImpl implements CustomerDAO {
 	
 	@Inject

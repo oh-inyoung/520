@@ -14,7 +14,7 @@
          location.href = "${path}/customer/write"; //해당페이지로 이동
       }); //클릭했을 때
    }
-
+ 
    );
 </script>
 </head>

@@ -3,7 +3,7 @@ package com.foods.dao;
 import java.util.List;
 
 import com.foods.vo.CustomerVO;
-
+ 
 public interface CustomerDAO {
 	public List<CustomerVO> selectList();
     public void insert(CustomerVO vo);

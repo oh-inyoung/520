@@ -13,3 +13,4 @@ public interface CustomerService {
 	public void increaseViewcnt(int CustomerNo);
 	public List<CustomerVO> listAll(String searchOption, String keyword);
 }
+ 
