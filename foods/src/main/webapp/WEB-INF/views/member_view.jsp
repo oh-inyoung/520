@@ -82,7 +82,7 @@
 		<!-- javascript,ajax,JSON은 사용시 반드시 id를 선언 -->
 		<tr>
 			<td colspan="2"><input type="button" id="btnUpdate" value="수정">
-				<input type="button" id="btnDelete" value="삭제">
+				<input type="button" id="btnDelete" value="탈퇴">
 				<div style="color:red">
 					${message}
 				</div>

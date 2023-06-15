@@ -103,8 +103,11 @@ public class memberController {
 		
 		ModelAndView mav = new ModelAndView(); //전달할 페이지의 정보
 		if(result == true) {  //if(result)
-			mav.setViewName("main"); //home.jsp로 이동
-			mav.addObject("msg", "success"); //addAttribute와 동일
+			if(session.getAttribute("admin")== "1"){
+				mav.setViewName("member_list");
+			}else {
+				mav.setViewName("member_view");
+			}
 		} else { //로그인 실패
 			mav.setViewName("login"); //home.jsp로 이동
 			mav.addObject("msg", "failure"); //addAttribute와 동일			
