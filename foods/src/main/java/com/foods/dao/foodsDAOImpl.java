@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.foods.vo.FoodsVO;
+import com.foods.vo.MemberVO;
 
 @Repository
 public class foodsDAOImpl implements foodsDAO {
@@ -22,6 +23,10 @@ public class foodsDAOImpl implements foodsDAO {
 		//return sqlSession.selectList("memberMapper.memberList"); //사용할 맵퍼명과 전달할 값 
 		return sqlSession.selectList(mapper+"foodsList"); //사용할 맵퍼명과 전달할 값
 	}
+	@Override
+	public void insertFoods(FoodsVO vo) {
+		sqlSession.insert(mapper+"memberInsert", vo); //사용할 맵퍼명과 전달할 값
 
+	}
 	
 }

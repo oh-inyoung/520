@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.foods.dao.foodsDAO;
 import com.foods.vo.FoodsVO;
+import com.foods.vo.MemberVO;
 @Service
 public class foodsServiceImpl implements foodsService {
 	@Inject
@@ -18,5 +19,8 @@ public class foodsServiceImpl implements foodsService {
 		// Dao에 선언된 메소드를 호출
 				return foodsDao.foodsList();
 	}
-
+	public void insertFoods(FoodsVO vo) {
+		foodsDao.insertFoods(vo);	
+	}
+	
 }

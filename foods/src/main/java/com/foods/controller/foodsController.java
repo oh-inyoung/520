@@ -5,10 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.foods.service.foodsService;
 import com.foods.vo.FoodsVO;
+import com.foods.vo.MemberVO;
 
 @Controller
 
@@ -25,4 +28,22 @@ public class foodsController {
 		
 		return "foods_list";
 	}
+	@RequestMapping("foods/write")
+	public String memberwriteView() { //Model 앞페이지의 정보
+		
+		return "foods_write";
+	}
+	
+	//ModelAttribute : View에서 값을 전달받을 때(request)
+	@RequestMapping(value="foods/write", method=RequestMethod.POST)
+	public String foodsInsert(@ModelAttribute FoodsVO vo) { //Model 앞페이지의 정보
+		//서비스로 저장작업
+				
+		foodsservice.insertFoods(vo); //서버스를 통해 회원등록
+		
+		return "redirect:/admin/index";  //목록으로 이동
+	}
+	
+	
 }
+
