@@ -98,21 +98,15 @@ public class memberController {
 	//Model 데이터값을 주고받기 위해서 Model영역에 HttpSession 사용
 	//Model과 유사한 ModelAndView
 	@RequestMapping("loginCheck")
-	public ModelAndView loginCheck(@ModelAttribute MemberVO vo, HttpSession session) {
+	public String loginCheck(@ModelAttribute MemberVO vo, HttpSession session, Model model) {
 		boolean result = memberservice.loginCheck(vo, session);
 		
-		ModelAndView mav = new ModelAndView(); //전달할 페이지의 정보
-		if(result == true) {  //if(result)
-			if(session.getAttribute("admin")== "1"){
-				mav.setViewName("member_list");
-			}else {
-				mav.setViewName("member_view");
-			}
-		} else { //로그인 실패
-			mav.setViewName("login"); //home.jsp로 이동
-			mav.addObject("msg", "failure"); //addAttribute와 동일			
+		//ModelAndView mav = new ModelAndView(); //전달할 페이지의 정보
+		if(result == true) { 
+			return "redirect:/member/list";  //맵핑으로 연결	
+		} else {
+			return "login";
 		}
-		return mav;
 			
 	}
 	

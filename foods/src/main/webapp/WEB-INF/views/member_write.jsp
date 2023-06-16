@@ -32,7 +32,7 @@
       <label for="memberEmail">이메일</label>
       <input type="text" id="memberEmail" name="memberEmail"></td>	
     </div>	
-	<button type="submit" class="btn btn-primary">등록</button>
+	<button type="submit" class="btn btn-primary">회원가입</button>
 
 
 </form>
