@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<rTitle>Insert customerTitle here</Title>
+<Title>Insert customerTitle here</Title>
 <!--공통적은 파일을 include 폴더에 넣어 두고 필요할 때마다 include로 연결해서 사용 -->
 <%@ include file="../include/member_header.jsp" %> <!-- 해당파일을 연결 -->
 <script>

@@ -8,39 +8,61 @@
 <!--공통적은 파일을 include 폴더에 넣어 두고 필요할 때마다 include로 연결해서 사용 -->
 <%@ include file="../include/member_header.jsp" %> <!-- 해당파일을 연결 -->
 <script>
-	$("document").ready(
-		function(){
-			$("#btnDelete").click(
-				function() {
-					location.href="${path}/customer/delete?customerNo=${dto.customerNo}";
-				}		
-			);
-		}
-		
-	);
-	$("document").ready(
-			function(){
-				$("#btnUpdate").click(
-					function() {
-						var customerTitle = $("#customerTitle").val();
-						var customerContent = $("#customerContent").val();
-						//유효성 검사
-						if(customerTitle=="") {
-							alert("제목을 입력하세요.");
-							document.form1.customerTitle.focus();
-							return;
-						}
-						if(content==""){
-							alert("내용을 입력하세요.");
-							document.form1.customerContent.focus();
-							return;
-						}
-						document.form1.submit(); //폼을 전송
-					}		
-				);
+	//게시글(삭제,수정)
+	$("document").ready(function() {
+		$("#btnDelete").click(function() {
+			location.href = "${path}/customer/delete?customerNo=${dto.customerNo}";
+		});
+	});
+	
+	$("document").ready(function() {
+		$("#btnUpdate").click(function() {
+			var customerTitle = $("#customerTitle").val();
+			var customerContent = $("#customerContent").val();
+			//유효성 검사
+			if (customerTitle == "") {
+				alert("제목을 입력하세요.");
+				document.form1.customerTitle.focus();
+				return;
 			}
-			
-		);	
+			if (customerContent == "") {
+				alert("내용을 입력하세요.");
+				document.form1.customerContent.focus();
+				return;
+			}
+			document.form1.submit(); //폼을 전송
+		});
+	});
+
+	$("document").ready(function() {
+		$("#btnReplay").click(function() {
+			var replycustomerContents = $("#replytext").val();
+			var refBoradNo = "${dto.customerNo}";
+			var param = "replytext="+replytext+"&customerNo="+customerNo;
+			$.ajax({
+				type : "post",
+				url : "${path}/reply/insert",
+				data :param,
+				complete : function() {
+					alert("등록성공")
+					listReply(); 
+				},
+				error : function() {
+					alert("등록 실패")
+				}
+			});
+		}
+	});	
+function listReply(){
+	$.ajax({
+		type: "get",
+		url: "${path}/reply/list?customerNo=${dto.customerNo}",
+		success: function(result){
+		// responseText가 result에 저장됨.
+		$("#listReply").html(result);
+		}
+	});
+}
 </script>
 </head>
 <body>
