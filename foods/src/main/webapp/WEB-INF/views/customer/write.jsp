@@ -4,34 +4,34 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<Title>Insert Customer</Title>
+<rTitle>Insert customerTitle here</Title>
 <!--공통적은 파일을 include 폴더에 넣어 두고 필요할 때마다 include로 연결해서 사용 -->
 <%@ include file="../include/member_header.jsp" %> <!-- 해당파일을 연결 -->
 <script>
-   $(document).ready(
-      function(){
-         $("#btnSave").click(
-            function(){ //var 들어오는 값에 따라 자동으로 데이터형이 변환
-               var CustomerTitle = $("#CustomerTitle").val(); //제목의 내용을 저장
-               var CustomerContent = $("#CustomerContent").val(); //내용을 저장
-               if(CustomerTitle==""){ //제목을 입력하지 않았으면
-                  alert("제목을 입력하세요."); //메세지 창
-                  document.form1.CustomerTitle.focus(); //위치로 이동
-                  return;
-               }
-               if(CustomerContent==""){ //내용이 없으면
-                  alert("내용을 입력하세요");
-                  document.form1.CustomerContent.focus();
-                  return;                  
-               }
-               //제목과 내용이 존재하면
-               document.form1.submit(); //폼을 전송
-            }      
-         
-         );
-         
-      }      
-   );
+	$(document).ready(
+		function(){
+			$("#btnSave").click(
+				function(){ //var 들어오는 값에 따라 자동으로 데이터형이 변환
+					var customerTitle = $("#customerTitle").val(); //제목의 내용을 저장
+					var content = $("#customerContent").val(); //내용을 저장
+					if(customerTitle==""){ //제목을 입력하지 않았으면
+						alert("제목을 입력하세요."); //메세지 창
+						document.form1.customerTitle.focus(); //위치로 이동
+						return;
+					}
+					if(content==""){ //내용이 없으면
+						alert("내용을 입력하세요");
+						document.form1.customerContent.focus();
+						return;						
+					}
+					//제목과 내용이 존재하면
+					document.form1.submit(); //폼을 전송
+				}		
+			
+			);
+			
+		}		
+	);
 </script>
 </head>
 <body>
@@ -40,28 +40,28 @@
 <!-- EL-전달받은 변수(값)을 쉽게 처리하는 형식 $ 대괄호안에 변수명을 기재 %=변수 대신-->
 <%@ include file="../include/member_menu.jsp" %> <!-- 해당파일을 연결 -->
 <!-- TODO: 로그인이 안된 상태에서 글쓰기 버튼을 누르면 메세지창 출력 후 로그인 이동 -->
-<!--  include file="../sessionCheck.jsp" -->
+<%@ include file="../sessionCheck.jsp" %>
 
 <!-- TODO: 입력폼 작업(스크립트에서 유효성 검사를 진행해서 전달) -->
 <h2>게시글 등록</h2> 
 <form name="form1" method="post" action="${path}/customer/write">
-   <div>
-      <input type="hidden" name="CustomerWriter" value="${sessionScope.memberId}">
-   </div>
-   <div>
-      제목 <input name="CustomerTitle" id="CustomerTitle"> <!-- customerVO를 참고해서 이름 지정 -->       
-   </div>
-   <div>
-      내용 <textarea name="CustomerContent" id="CustomerContent" cols="80" rows="4"></textarea>
-   </div>
-   <div>
-      이름 ${sessionScope.memberName}
-   </div>
-   <div>
-      <button type="button" id="btnSave">확인</button>
-      <button type="reset">취소</button>
-   </div>
+	<div>
+		<input type="hidden" name="customerWriter" value="${sessionScope.memberId}">
+	</div>
+	<div>
+		제목 <input name="customerTitle" id="customerTitle"> <!-- customerVO를 참고해서 이름 지정 -->		 
+	</div>
+	<div>
+		내용 <textarea name="customerContent" id="customerContent" cols="80" rows="4"></textarea>
+	</div>
+	<div>
+		이름 ${sessionScope.memberName}
+	</div>
+	<div>
+		<button type="button" id="btnSave">확인</button>
+		<button type="reset">취소</button>
+	</div>
 </form>
 
 </body>
-</html> 
+</html>

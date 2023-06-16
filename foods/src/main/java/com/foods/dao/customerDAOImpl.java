@@ -8,51 +8,51 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
-import com.foods.vo.CustomerVO;
+import com.foods.vo.customerVO;
 @Repository 
-public class CustomerDAOImpl implements CustomerDAO {
+public class customerDAOImpl implements customerDAO {
 	
 	@Inject
 	SqlSession sqlSession;
 	
-	String  mapper="CustomerMapper."; //namespace를 지정
+	String  mapper="customerMapper."; //namespace를 지정
 	
 	@Override
-	public List<CustomerVO> selectList() {
+	public List<customerVO> selectList() {
 		return sqlSession.selectList(mapper+"selectList");
 	}
 
 	@Override
-	public void insert(CustomerVO vo) {
+	public void insert(customerVO vo) {
 		sqlSession.insert(mapper+"insert", vo); //''안에 사용할 id
 
 	}
 
 	@Override
-	public CustomerVO view(int CustomerNo) {
-		return sqlSession.selectOne(mapper+"view", CustomerNo);
+	public customerVO view(int customerNo) {
+		return sqlSession.selectOne(mapper+"view", customerNo);
 	}
 
 	@Override
-	public void update(CustomerVO vo) {
+	public void update(customerVO vo) {
 		sqlSession.update(mapper+"update", vo);
 
 	}
 
 	@Override
-	public void delete(int CustomerNo) {
-		sqlSession.delete(mapper+"delete", CustomerNo);
+	public void delete(int customerNo) {
+		sqlSession.delete(mapper+"delete", customerNo);
 
 	}
 
 	@Override
-	public void increaseViewcnt(int CustomerNo) {
-		sqlSession.update(mapper+"increaseViewcnt", CustomerNo); //해당 게시물의 조회수를 증가
+	public void increaseViewcnt(int customerNo) {
+		sqlSession.update(mapper+"increaseViewcnt", customerNo); //해당 게시물의 조회수를 증가
 
 	}
 
 	@Override
-	public List<CustomerVO> listAll(String searchOption, String keyword) {
+	public List<customerVO> listAll(String searchOption, String keyword) {
 		//2개의 변수를 batis에 전달하기 위해서 map사용
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("searchOption", searchOption);
