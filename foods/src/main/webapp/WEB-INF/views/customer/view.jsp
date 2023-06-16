@@ -23,7 +23,7 @@
 				$("#btnUpdate").click(
 					function() {
 						var customerTitle = $("#customerTitle").val();
-						var content = $("#customerContext").val();
+						var customerContent = $("#customerContent").val();
 						//유효성 검사
 						if(customerTitle=="") {
 							alert("제목을 입력하세요.");
@@ -32,7 +32,7 @@
 						}
 						if(content==""){
 							alert("내용을 입력하세요.");
-							document.form1.customerContext.focus();
+							document.form1.customerContent.focus();
 							return;
 						}
 						document.form1.submit(); //폼을 전송
@@ -65,13 +65,13 @@
 	</div>
 	<div>
 	<!-- textarea은 value가 없음 textarea /textarea사이에 작성 -->
-		내용 <textarea name="customerContext" id="customerContext" cols="80" rows="4">${dto.customerContext}</textarea>
+		내용 <textarea name="customerContent" id="customerContent" cols="80" rows="4">${dto.customerContent}</textarea>
 	</div>
 	<div>
 		이름 ${dto.memberName}
 	</div>
 	<!-- 작성자가 상세페이지 클릭했을 때 수정,삭제버튼 화면에 나타내고, 작성자가 아니면 수정/삭제버튼은 화면에서 숨긴다. -->
-	<c:if test="${dto.customerWriter == sessionScope.memberId  }">
+	<c:if test="${dto.customerWriter==sessionScope.memberId}">
 		<div>
 			<button type="button" id="btnUpdate">수정</button>
 			<button type="button" id="btnDelete">삭제</button>

@@ -9,23 +9,23 @@
 
    <!-- 게시글 전체 조회 -->
    <select id="selectList" resultType="com.foods.vo.customerVO">
-      SELECT customerNo, customerTitle, customerContext, customerWriter, customerRegdate, customerCnt FROM foods_customer 
+      SELECT customerNo, customerTitle, customerContent, customerWriter, customerRegdate, customerCnt FROM foods_customer 
    </select>
    <!-- 게시글 등록 -->
    <insert id="insert">
-      INSERT INTO foods_customer(customerTitle, customerContext, customerWriter) VALUES (#{customerTitle}, #{customerContext}, #{customerWriter})
+      INSERT INTO foods_customer(customerTitle, customerContent, customerWriter) VALUES (#{customerTitle}, #{customerContent}, #{customerWriter})
    </insert>
    <!-- 게시글 상세 조회 -->
    <!-- 게시글+회원관리 결합해서 필요한 필드만 추출 -->
    <!-- Left Join -->
    <!-- select 테이블명.필드 from 테이블명 별칭(알파벳) left join 참조테이블 별칭 on 테이블.필드 = 참조테이블.필드 -->
    <select id="view" resultType="com.foods.vo.customerVO">
-      SELECT a.customerNo, a.customerTitle, a.customerContext, a.customerWriter, a.customerRegdate, a.customerCnt, b.memberName 
+      SELECT a.customerNo, a.customerTitle, a.customerContent, a.customerWriter, a.customerRegdate, a.customerCnt, b.memberName 
       FROM foods_customer a left join foods_member b on a.customerWriter = b.memberId WHERE customerNo=#{customerNo}
    </select>
    <!-- 게시글 수정 -->
    <update id="update">
-      UPDATE foods_customer SET customerTitle=#{customerTitle}, customerContext=#{customerContext}, customerWriter=#{customerWriter} WHERE customerNo=#{customerNo}
+      UPDATE foods_customer SET customerTitle=#{customerTitle}, customerContent=#{customerContent}, customerWriter=#{customerWriter} WHERE customerNo=#{customerNo}
    </update>
    <!-- 게시글 삭제 -->
    <delete id="delete">
@@ -42,7 +42,7 @@
    <!-- 모든 조회 + 옵션으로 추가기능 -->
    <!--질의어를 추가 include refid="추가" -->
 	<select id="listAll" resultType="com.foods.vo.customerVO">
-	   SELECT customerNo, customerTitle, customerContext, customerWriter, customerRegdate, customerCnt FROM foods_customer
+	   SELECT customerNo, customerTitle, customerContent, customerWriter, customerRegdate, customerCnt FROM foods_customer
 	   <include refid="search"></include><!-- 질의어에 해당부분을 추가 -->
 	</select>
 	
@@ -52,7 +52,7 @@
 	         WHERE 
 	            customerWriter like CONCAT('%', #{keyword},'%')
 	         OR 
-	            customerContext like CONCAT('%', #{keyword},'%')
+	            customerContent like CONCAT('%', #{keyword},'%')
 	         OR 
 	            customerTitle like CONCAT('%', #{keyword},'%')
 	      </when>

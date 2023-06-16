@@ -31,7 +31,7 @@
 	<select name="searchOption">
 		<option value="all">제목+이름</option>
 		<option value="customerTitle">제목</option>
-		<option value="customerContext">내용</option>
+		<option value="customerContent">내용</option>
 		<option value="customerWriter">작성자</option>
 	</select>
 	<input name="keyword">

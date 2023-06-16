@@ -33,8 +33,8 @@ public class customerController {
 		System.out.println("리스트");
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list); 
-		map.put("searchOption", searchOption); //검색옵션
-		map.put("keyword", keyword);  ///검색키워드
+		//map.put("searchOption", searchOption); //검색옵션
+		//map.put("keyword", keyword);  ///검색키워드
 		
 		mav.addObject("map", map); //맵에 저장된 데이터를 mav에 저장
 		mav.setViewName("customer/list");//뷰를 list.jsp로 설정
