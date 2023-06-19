@@ -14,7 +14,7 @@
 	<!-- 입력폼에서 vo에 데이터가 저장 vo변수를 사용하려면 EL -->
 	<!--parameterType="com.spring.memver.vo.MemberVO" -->
 	<insert id="foodsWrite">
-		INSERT INTO foods_detail(foodsName,cateCode, foodsPrice,foodsDetail,) 
+		INSERT INTO foods_detail(foodsName,cateCode, foodsPrice,foodsDetail) 
 		values (#{foodsName}, #{cateCode}, #{foodsPrice}, #{foodsDetail}) 
 	</insert>
 	

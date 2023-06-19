@@ -45,8 +45,8 @@
              </div>
           </div>
           <div class="btn_section">
-             <button id="cancelBtn" class="btn">취 소</button>
-             <button id="enrollBtn" class="btn enroll_btn">등 록</button>
+             <button id="reset" class="btn">취 소</button>
+             <button id="submit" class="btn enroll_btn">등 록</button>
           </div> 
        </form>
    </div>  
