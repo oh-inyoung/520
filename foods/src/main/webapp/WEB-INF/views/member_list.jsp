@@ -4,30 +4,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>회원목록</title>
 <%@ include file="./include/member_header.jsp" %> <!-- 해당파일을 연결 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 <%@ include file="./include/member_menu.jsp" %> <!-- 해당파일을 연결 -->
-<!-- 회원 테이블 목록 -->
-<H2>회원 목록</H2>
-<!-- 버튼을 클릭하면 member/write get으로 연결 -->
-
 <div class="container mt-3">
-<table border="1" width="700px" class="table"> <!-- 표만들기 -->
-	<tr> <!-- 행 -->
-		<th>NO</th>
+  <h2 style="text-align:center">회원 정보</h2>
+  <p>회원정보 수정 및 탈퇴:</p>            
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>NO</th>
 		<th>아이디</th>
 		<th>이름</th>
 		<th>비밀번호</th>
 		<th>이메일</th>
 		<th>가입날짜</th>
 		<th>관리자구분</th>
-		
-		
-	</tr>
-<!-- var=개별자료변수 items=Controller에서 전달받은 목록 -->
-<c:forEach var="row" items="${list }">
+      </tr>
+    </thead>
+    <tbody>
+      <c:forEach var="row" items="${list }">
 	<c:choose>
 		<c:when test="${sessionScope.admin=='1'}">
 			<tr> <!-- 반복적으로 회원정보를 출력하는 부분 -->
@@ -55,9 +56,8 @@
 		</c:otherwise>
 	</c:choose>
 </c:forEach>
-</table>
+    </tbody>
+  </table>
 </div>
-
-
 </body>
 </html>

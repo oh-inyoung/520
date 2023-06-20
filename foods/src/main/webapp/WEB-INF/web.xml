@@ -49,5 +49,4 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern> <!--  외부에서 localhost:8080/시작 뒤에 상관없이 -->
 	</filter-mapping>
-
 </web-app>

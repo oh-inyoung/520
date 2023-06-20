@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>회원등록</title>
 <!-- CSS에서 id(#), class(.) 사용 -->
 <%@ include file="./include/member_header.jsp" %> <!-- 해당파일을 연결 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- 스크립트(Javascript-DOM, ajax, json) -->
 <script>
 	//현재 문서의 정보를 수집
@@ -51,36 +54,34 @@
 <body>
 
 <%@ include file="./include/member_menu.jsp" %> <!-- 해당파일을 연결 -->
-<h2>회원정보 관리</h2>
-<form name="form1" method="post"> <!-- member_list에서 member/write사용(get) -->
-	<table border="1" width="400px">
-		<tr>
-			<!-- 중요한 내용으로 노출을 피할 때는 type=hidden -->
-			<td>아이디</td><!-- 기본키 - 구분하는 키, 반드시 데이터베이스 설계 1개이상 존재 -->
-			<td><input type="text" name="memberId" value="${dto.memberId}" readonly></td>			
-		</tr>
-		<tr>
-			<td>비밀번호</td>
-			<td><input type="password" name="memberPw" value="${dto.memberPw}"></td>			
-		</tr>
-		<tr>
-			<td>이름</td>
-			<td><input type="text" name="memberName" value="${dto.memberName }"></td>			
-		</tr>	
-		<tr>
-			<td>이메일</td>
-			<td><input type="email" name="memberEmail" value="${dto.memberEmail}"></td>			
-		</tr>
-		<tr>
-			<td>가입날짜</td>
+<div class="container px-5 my-5">
+<h2 style="text-align:center">회원정보 수정, 탈퇴</h2>
+<section class="w-100 p-3 d-flex justify-content-center pb-4">
+<form name="form1" method="post" style="width: 22rem;"> <!-- member_list에서 member/write사용(get) -->
+    <div class="mb-3 mt-3">
+      <label for="memberId">아이디:</label>
+      <input type="text" class="form-control" id="memberId" placeholder="Enter Id" name="memberId" value="${dto.memberId}" readonly>
+    </div>
+    <div class="mb-3">
+      <label for="memberPw">패스워드:</label>
+      <input type="text" class="form-control" id="memberPw" placeholder="Enter password" name="memberPw" value="${dto.memberPw}">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="memberName">이름:</label>
+      <input type="text" class="form-control" id="memberName" placeholder="Enter name" name="memberName" value="${dto.memberName}">
+    </div>
+    <div class="mb-3">
+      <label for="memberEmail">이메일:</label>
+      <input type="text" class="form-control" id="memberEmail" placeholder="Enter email" name="memberEmail" value="${dto.memberEmail}">
+    </div>
+    <div class="mb-3">
+      <td>가입날짜</td>
 			<td>
 				<!-- 모양에 맞춰서 출력 -->
 				<fmt:formatDate value="${dto.regdate}" pattern="yyyy-MM-dd HH:mm:ss"/>
-			</td>			
-		</tr>		
-		<!-- form1개로 여러작업을 동시에 구현할 때는 submit사용(X)->javascript, ajax, JSON -->
-		<!-- javascript,ajax,JSON은 사용시 반드시 id를 선언 -->
-		<tr>
+			</td>
+    </div>
+    <tr>
 			<td colspan="2"><input type="button" id="btnUpdate" value="수정">
 				<input type="button" id="btnDelete" value="탈퇴">
 				<div style="color:red">
@@ -88,8 +89,12 @@
 				</div>
 			</td>
 			
-		</tr>			
-	</table>
-</form>
+	</tr>			
+  </form>
+  </section>
+  </div>
+</div>
+</div>
+</div>
 </body>
 </html>

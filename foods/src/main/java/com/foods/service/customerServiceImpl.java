@@ -37,10 +37,17 @@ public class customerServiceImpl implements customerService {
 		customerDAO.delete(customerNo);
 	}
 
+	//추가(응용) 게시글에 추가적인 작업- 검색, 페이지, 조회수
 	public void increaseViewcnt(int customerNo){
 		customerDAO.increaseViewcnt(customerNo);
 	}
-	public List<customerVO> listAll(String searchOption, String keyword){
-		return customerDAO.listAll(searchOption, keyword);
+	public List<customerVO> listAll(int start, int end, String searchOption, String keyword){
+		return customerDAO.listAll(start, end, searchOption, keyword);
 	}
+	
+	// 07. 게시글 레코드 갯수 customerDAO.countArticle메서드 
+    @Override
+    public int countArticle(String searchOption, String keyword){
+        return customerDAO.countArticle(searchOption, keyword);
+    }
 }

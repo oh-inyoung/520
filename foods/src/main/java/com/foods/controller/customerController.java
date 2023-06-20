@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.foods.service.customerService;
 import com.foods.vo.customerVO;
+import com.foods.service.Pager;
 
 @Controller
 @RequestMapping("customer/*") //customer시작하고 뒤에 상관없이(customer시작하면 클래스로 진입)
@@ -25,21 +26,33 @@ public class customerController {
 
 	@RequestMapping("list")
 
-	public ModelAndView customerList(@RequestParam(defaultValue="all") String searchOption,
-			@RequestParam(defaultValue="") String keyword){
-
-		ModelAndView mav = new ModelAndView();
-		List<customerVO> list = customerservice.listAll(searchOption, keyword);
-		System.out.println("리스트");
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("list", list); 
-		//map.put("searchOption", searchOption); //검색옵션
-		//map.put("keyword", keyword);  ///검색키워드
+	public ModelAndView list(@RequestParam(defaultValue="customerTitle") String searchOption,
+		@RequestParam(defaultValue="") String keyword,
+		@RequestParam(defaultValue="1") int curPage) throws Exception{
 		
-		mav.addObject("map", map); //맵에 저장된 데이터를 mav에 저장
-		mav.setViewName("customer/list");//뷰를 list.jsp로 설정
-
-		return mav;
+		// 레코드의 갯수 계산
+		int count = customerservice.countArticle(searchOption, keyword);
+		
+		// 페이지 나누기 관련 처리
+		Pager customerPager = new Pager(count, curPage);
+		int start = customerPager.getPageBegin()-1;
+		int end = customerPager.getPageEnd();
+		
+		List<customerVO> list = customerservice.listAll(start, end, searchOption, keyword);
+		
+		// 데이터를 맵에 저장
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list); // list
+		map.put("count", count); // 레코드의 갯수
+		map.put("searchOption", searchOption); // 검색옵션
+		map.put("keyword", keyword); // 검색키워드
+		map.put("customerPager", customerPager);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("map", map); // 맵에 저장된 데이터를 mav에 저장
+		mav.setViewName("customer/list"); // 뷰를 list.jsp로 설정
+		
+		return mav; // list.jsp로 List가 전달된다.
 	}
 		
 	//게시글 등록폼
@@ -51,6 +64,7 @@ public class customerController {
 
 	//게시글 등록(데이터베이스 처리)
 	@RequestMapping(value = "write", method=RequestMethod.POST)
+	
 	public String customerWrite(@ModelAttribute customerVO vo) {
 		System.out.println(vo.getCustomerTitle());
 		System.out.println(vo.getCustomerWriter());
@@ -93,5 +107,4 @@ public class customerController {
 		
 		return "redirect:list";
 	}
-
 }

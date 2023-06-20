@@ -17,7 +17,7 @@
 	<!-- 사용자 이름이 댓글에 필요하면 member테이블과 조인 -->
 	<!-- 댓글과 멤버테이블의 아이디가 동일한 자료를 조인해서 사용 -->
 	<select id="listReply" resultType="com.foods.vo.replyVO">
-		SELECT a.rNo, a.customerNo, a.replytext, a.replyer, a.regdate, a.updateDate, b.memberName 
+		SELECT a.rNo, a.customerNo, a.replytext, a.replyer, a.regdate, a.updateDate, b.memberId
 		FROM reply a LEFT JOIN foods_member b on a.replyer = b.memberId 
 		WHERE customerNo=#{customerNo}  
 	</select>
