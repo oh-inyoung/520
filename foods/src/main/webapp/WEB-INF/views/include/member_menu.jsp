@@ -36,7 +36,7 @@
 							<li class="nav-item"><a class="nav-link" href="${path}/loginout">로그아웃</a></li>
 							<li class="nav-item"><a class="nav-link" href="${path}/member/list">회원관리</a></li>
 							<!-- localhost:8080/member/list로 접속 -->
-							<li class="nav-item"><a class="nav-link" href="${path}/admin/index">상품관리</a></li>
+							<li class="nav-item"><a class="nav-link" href="${path}/foods/list">상품관리</a></li>
 						</c:when>
 						<c:otherwise>
 							<!-- 일반회원 로그인이 된 상태 else-->

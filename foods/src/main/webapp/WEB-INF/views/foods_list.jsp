@@ -16,6 +16,7 @@
 <div class="container mt-3">
 <table border="1" width="700px" class="table"> <!-- 표만들기 -->
 	<tr> <!-- 행 -->
+		<th>No</th>
 		<th>상품명</th>
 		<th>카테고리 이름</th>
 		<th>상품 가격</th>
@@ -24,12 +25,14 @@
 <!-- var=개별자료변수 items=Controller에서 전달받은 목록 -->
 <c:forEach var="row" items="${list }">
 	<tr> <!-- 반복적으로 회원정보를 출력하는 부분 -->
-		<td>${row.foodsName }</td>   <!-- memberId는 필드명, vo에서 선언한 변수명 -->
-		<%-- <td><a href="${path}/admin/index?foodsName=${row.foodsName}">${row.memberName }</a></td> <!-- 이름을 클릭시 상세페이지로 이동, EL은 변수값을 출력 -->  --%>
+		<%-- <td>${row.foodsName}</td>  --%>  <!-- memberId는 필드명, vo에서 선언한 변수명 -->
+		<td>${row.foodsId }</td>
+		<td><a href="${path}/foods/view?foodsId=${row.foodsId}">${row.foodsName }</a></td> <!-- 이름을 클릭시 상세페이지로 이동, EL은 변수값을 출력 -->
 		<td>${row.cateCode }</td> 
 		<td>${row.foodsPrice }</td>
 		<td>${row.foodsDetail }</td>
 	</tr>
+	
 </c:forEach>
 </table>
 </div>

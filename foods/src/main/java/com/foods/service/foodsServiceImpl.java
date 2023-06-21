@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.foods.dao.foodsDAO;
 import com.foods.vo.FoodsVO;
-import com.foods.vo.MemberVO;
 @Service
 public class foodsServiceImpl implements foodsService {
 	@Inject
@@ -20,7 +19,17 @@ public class foodsServiceImpl implements foodsService {
 				return foodsDao.foodsList();
 	}
 	public void insertFoods(FoodsVO vo) {
-		foodsDao.insertFoods(vo);	
+		foodsDao.insertFoods(vo);
 	}
+	public FoodsVO viewFoods(int foodsId) {
+		return foodsDao.viewFoods(foodsId);
+	}
+	public void updateFoods(FoodsVO vo) {
+		foodsDao.updateFoods(vo);
+	}
+
 	
+	public void deleteFoods(int foodsId) {
+		foodsDao.deleteFoods(foodsId);
+	}
 }
