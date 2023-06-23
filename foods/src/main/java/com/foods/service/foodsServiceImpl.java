@@ -32,4 +32,12 @@ public class foodsServiceImpl implements foodsService {
 	public void deleteFoods(int foodsId) {
 		foodsDao.deleteFoods(foodsId);
 	}
+	public List<FoodsVO> listAll(int start, int end, String searchOption, String keyword){
+		return foodsDao.listAll(start, end, searchOption, keyword);
+	}
+	// 07. 게시글 레코드 갯수 customerDAO.countArticle메서드 
+    @Override
+    public int countArticle(String searchOption, String keyword){
+        return foodsDao.countArticle(searchOption, keyword);
+    }
 }

@@ -18,6 +18,13 @@
 	<!-- 외부에서 요청이 있을 때 어디에서 작업을 진행할 건지 결정(servlet-context.xml)-->
 	<!-- 연결할 작업파일들의 정보가 있는 파일(Controller, DAO, Service 패키지) -->
 	<servlet>
+		<!-- 업로드 관련 설정 -->
+		<multipart-config>
+			<location>C:\\upload\\temp</location>		
+			<max-file-size>20971520</max-file-size>					<!-- 1MB * 20 -->
+			<max-request-size>41943040</max-request-size>			<!-- 40MB -->
+			<file-size-threshold>20971520</file-size-threshold>		<!-- 20MB -->
+		</multipart-config>
 		<servlet-name>appServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>

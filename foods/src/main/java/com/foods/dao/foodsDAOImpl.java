@@ -1,6 +1,8 @@
 package com.foods.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -43,4 +45,28 @@ public class foodsDAOImpl implements foodsDAO {
 		sqlSession.delete(mapper+"foodsDelete", foodsId);
 
 	}
+	//검색기능
+		@Override
+		public List<FoodsVO> listAll(int start, int end, String searchOption, String keyword){
+			//2개의 변수를 batis에 전달하기 위해서 map 사용
+			Map<String, Object> map2 = new HashMap<String, Object>();
+			map2.put("searchOption", searchOption);
+			map2.put("keyword", keyword);
+			map2.put("start", start);
+			map2.put("end", end);
+
+			return sqlSession.selectList(mapper+"listAll", map2);
+		}
+		
+		// 07. 게시글 레코드 갯수
+	    @Override
+	    public int countArticle(String searchOption, String keyword){
+	        // 검색옵션, 키워드 맵에 저장
+	        Map<String, String> map2 = new HashMap<String, String>();
+	        map2.put("searchOption", searchOption);
+	        map2.put("keyword", keyword);
+	        
+			return sqlSession.selectOne(mapper+"countArticle", map2);
+			
+	    }  	
 }

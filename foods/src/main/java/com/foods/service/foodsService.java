@@ -15,4 +15,8 @@ public interface foodsService {
 	public void updateFoods(FoodsVO vo);
 	
 	public void deleteFoods(int foodsId);
+	
+	//페이징, 검색
+		public List<FoodsVO> listAll(int start, int end, String searchOption, String keyword);
+		public int countArticle(String searchOption, String keyword) throws Exception;	
 }

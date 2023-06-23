@@ -26,8 +26,18 @@ public class FoodsVO {
    
    /* 수정 날짜 */
    private Date foodsUpdateDate;
+   
+   private String foodsImg;
 
-   public int getFoodsId() {
+public String getFoodsImg() {
+	return foodsImg;
+}
+
+public void setFoodsImg(String foodsImg) {
+	this.foodsImg = foodsImg;
+}
+
+public int getFoodsId() {
       return foodsId;
    }
 
@@ -94,10 +104,11 @@ public class FoodsVO {
    }
 
    @Override
-   public String toString() {
-      return "FoodsVO [foodsId=" + foodsId + ", foodsName=" + foodsName + ", cateCode=" + cateCode + ", cateName="
-            + cateName + ", foodsPrice=" + foodsPrice + ",foodsDetail=" + foodsDetail + ", foodsRegDate=" + foodsRegDate
-            + ", foodsUpdateDate=" + foodsUpdateDate + "]";
-   }
+public String toString() {
+	return "FoodsVO [foodsId=" + foodsId + ", foodsName=" + foodsName + ", cateCode=" + cateCode + ", cateName="
+			+ cateName + ", foodsPrice=" + foodsPrice + ", foodsDetail=" + foodsDetail + ", foodsRegDate="
+			+ foodsRegDate + ", foodsUpdateDate=" + foodsUpdateDate + ", foodsImg=" + foodsImg + "]";
+}
+
    
 }

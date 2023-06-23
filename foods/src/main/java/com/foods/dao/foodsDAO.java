@@ -3,6 +3,7 @@ package com.foods.dao;
 import java.util.List;
 
 import com.foods.vo.FoodsVO;
+import com.foods.vo.customerVO;
 
 public interface foodsDAO {
 		public List<FoodsVO> foodsList(); //여러상품의 정보를 조회
@@ -16,4 +17,9 @@ public interface foodsDAO {
 		public void updateFoods(FoodsVO vo);
 		
 		public void deleteFoods(int foodsId);
+		
+		//검색 분류(searchoption), 검색어(keyword)
+		public List<FoodsVO> listAll(int start, int end, String searchOption, String keyword);
+		
+		public int countArticle(String searchOption, String keyword);
 }
