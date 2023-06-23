@@ -109,7 +109,7 @@ public class foodsController {
 		String[] splitPath = filename2.split("webapp\\\\"); // 두 개의 역슬래시를 사용하여 이스케이프 처리
 		String remainingPath = splitPath[1].replaceFirst("\\\\", ""); // 첫 번째 역슬래시(\) 제거
 
-		System.out.println(remainingPath);
+		
 		vo.setFoodsImg(remainingPath);
 		System.out.println("상품 등록");
 		foodsservice.insertFoods(vo);
